@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "99fb74d8-e2c2-4fd3-9af4-33999061528a",
+		"name": "Test Suite",
+		"description": "API for Create-Read-Update-Delete (CRUD) operations for a real-world Employee object",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "1544555-99fb74d8-e2c2-4fd3-9af4-33999061528a"
+	},
+	"item": [
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "Read all employees",
+					"id": "5866a3fb-a424-4076-98e9-9e4900e6e25d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "7fb33237-b5d0-4bc6-a35f-09c52c87be50",
+							"name": "All employees listing",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"value\": \"reference #/components/schemas/employee not found in the OpenAPI spec\"\n  },\n  {\n    \"value\": \"reference #/components/schemas/employee not found in the OpenAPI spec\"\n  }\n]"
+						},
+						{
+							"id": "f1c8cd1f-c1d6-4919-97ed-40d2bbd551b2",
+							"name": "No employee(s) found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"id": "31087f55-2a03-42f4-81f7-e5bedac82322",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create multiple employees",
+					"id": "4abc1475-2de2-488a-a4bd-3226d3a20a0a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "a41a2ee2-2105-402c-9133-54a9cf66e7ef",
+							"name": "Employee(s) created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"value\": \"reference #/components/schemas/employees not found in the OpenAPI spec\"\n}"
+						},
+						{
+							"id": "1445d8e9-2fa5-47a6-ab00-6b57b6b97bda",
+							"name": "No employee(s) found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"id": "764d9887-7e6d-4ce0-9b1e-f1f98b8bff24",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"id": "42eb719e-4af2-4074-a710-9d186ce514fa",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "448a9655-0730-44f4-9eed-bf1ff6fd2f3a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d7a78ea6-841c-45ef-8925-c4070582633d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "{employeeId}",
+			"item": [
+				{
+					"name": "Read a employee",
+					"id": "84a7fece-5578-4f65-bc28-b313daef8ff4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/:employeeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								":employeeId"
+							],
+							"variable": [
+								{
+									"id": "bdd49ad8-08ee-45bf-a016-cc68b68b94c4",
+									"key": "employeeId",
+									"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e446488f-e060-428b-aa1b-0801dd95fd85",
+							"name": "The employee corresponding to the provided `employeeId`",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:employeeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":employeeId"
+									],
+									"variable": [
+										{
+											"id": "bdd49ad8-08ee-45bf-a016-cc68b68b94c4",
+											"key": "employeeId",
+											"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"value\": \"reference #/components/schemas/employee not found in the OpenAPI spec\"\n}"
+						},
+						{
+							"id": "605acba5-85ad-4d68-a110-3ade699fe097",
+							"name": "No employee found for the provided `employeeId`",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:employeeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":employeeId"
+									],
+									"variable": [
+										{
+											"id": "bdd49ad8-08ee-45bf-a016-cc68b68b94c4",
+											"key": "employeeId",
+											"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"id": "d5a79991-9f09-4551-8c9f-920df16514da",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:employeeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":employeeId"
+									],
+									"variable": [
+										{
+											"id": "bdd49ad8-08ee-45bf-a016-cc68b68b94c4",
+											"key": "employeeId",
+											"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a employee",
+					"id": "c02c1b3a-9e27-40a9-8780-717795910e8a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/:employeeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								":employeeId"
+							],
+							"variable": [
+								{
+									"id": "0fa5ab24-16b1-433a-9fba-c178871df652",
+									"key": "employeeId",
+									"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "74433efd-a06d-43be-a2bb-a04eaff96031",
+							"name": "The employee deleted corresponding to the provided `employeeId`",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:employeeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":employeeId"
+									],
+									"variable": [
+										{
+											"id": "0fa5ab24-16b1-433a-9fba-c178871df652",
+											"key": "employeeId",
+											"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"value\": \"reference #/components/schemas/employeeId not found in the OpenAPI spec\"\n}"
+						},
+						{
+							"id": "b8e5a8e2-b971-4304-9737-7ea02278449c",
+							"name": "No employee found for the provided `employeeId`",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:employeeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":employeeId"
+									],
+									"variable": [
+										{
+											"id": "0fa5ab24-16b1-433a-9fba-c178871df652",
+											"key": "employeeId",
+											"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"id": "a12daf5d-1d17-42b6-b41e-933d3080cdf6",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:employeeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":employeeId"
+									],
+									"variable": [
+										{
+											"id": "0fa5ab24-16b1-433a-9fba-c178871df652",
+											"key": "employeeId",
+											"value": "reference #/components/schemas/employeesId not found in the OpenAPI spec"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"id": "f976f108-b43c-4b95-8262-7fdfe0bc340e",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b9718ebd-3333-4309-ab25-4d895789d108",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5ca84b1-4af7-410b-98bd-6f9060fbd932",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-Api-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "f5cf2ac4-d5ea-4d55-a798-fa89f4aed9d1",
+			"key": "baseUrl",
+			"value": "/employees/v1"
+		}
+	]
+}

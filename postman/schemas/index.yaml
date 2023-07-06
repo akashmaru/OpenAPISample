@@ -1,0 +1,142 @@
+openapi: "3.0.0"
+info:
+    version: "1.0.0"
+    title: "OpenAPI for Employees"
+    description: API for Create-Read-Update-Delete (CRUD) operations for a real-world Employee object
+servers:
+    - url: /employees/v1
+      description: V1 Employees api
+    - url: !!str http://localhost:8000/employees/v1
+      description: The local implementation
+paths:
+    /:
+        get:
+            summary: Read all employees
+            responses:
+                "200":
+                    description: All employees listing
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Employees"
+                404:
+                    description: No employee(s) found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    $ref: "#/components/responses/InternalServerError"
+        post:
+            summary: Create multiple employees
+            requestBody:
+                $ref: "#/components/schemas/employees"
+            responses:
+                "201":
+                    description: Employee(s) created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/employees"
+                404:
+                    description: No employee(s) found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    $ref: "#/components/responses/InternalServerError"
+    /{employeeId}:
+        parameters:
+            - name: employeeId
+              description: The unique identifier of the employee
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/employeesId"
+        get:
+            summary: Read a employee
+            responses:
+                "200":
+                    description: The employee corresponding to the provided `employeeId`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/employee"
+                404:
+                    description: No employee found for the provided `employeeId`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    $ref: "#/components/responses/InternalServerError"
+        delete:
+            summary: Delete a employee
+            responses:
+                "200":
+                    description: The employee deleted corresponding to the provided `employeeId`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/employeeId"
+                404:
+                    description: No employee found for the provided `employeeId`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    $ref: "#/components/responses/InternalServerError"
+components:
+    schemas:
+        EmployeeId:
+            description: The unique identifier of a employee
+            type: string
+        Employee:
+            type: object
+            required:
+                - id
+                - firstname
+                - lastname
+                - email
+                - isactive
+            properties:
+                id:
+                    $ref: "#/components/schemas/EmployeeId"
+                firstname:
+                    type: string
+                lastname:
+                    type: string
+                email:
+                    type: string
+                isactive:
+                    type: boolean
+                #description:
+                #    type: string
+        Employees:
+            type: array
+            items:
+                $ref: "#/components/schemas/employee"
+        Error:
+            type: object
+            required:
+                - message
+            properties:
+                message:
+                    description: A human readable error message
+                    type: string
+    responses:
+        InternalServerError:
+            description: Unexpected error
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+    securitySchemes:
+        ApiKey:
+            type: apiKey
+            in: header
+            name: X-Api-Key
+security:
+    - ApiKey: []
